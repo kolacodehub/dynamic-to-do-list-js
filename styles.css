@@ -1,68 +1,122 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* 1. RESET & BASIC SETUP */
+* {
+    box-sizing: border-box;
     margin: 0;
-}
-
-#todo-app {
-    width: 100%;
-    max-width: 400px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-#task-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#add-task-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#add-task-btn:hover {
-    background-color: #0056b3;
-}
-
-ul {
-    list-style-type: none;
     padding: 0;
 }
 
+body {
+    font-family: 'Poppins', sans-serif; /* Using our new beautiful font */
+    /* A beautiful smooth gradient background */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 2. THE MAIN CARD (CONTAINER) */
+#todo-app {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px; /* Nice rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Deep shadow for 3D effect */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Header Styling */
+h1 {
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+/* 3. INPUT AREA STYLING */
+/* We wrap input and button to make them look neat */
+.input-group {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+    margin-bottom: 25px;
+}
+
+#task-input {
+    flex-grow: 1; /* Takes up all available space */
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: 0.3s;
+    outline: none;
+}
+
+#task-input:focus {
+    border-color: #764ba2; /* Purple border when typing */
+    box-shadow: 0 0 8px rgba(118, 75, 162, 0.2);
+}
+
+#add-task-btn {
+    padding: 15px 25px;
+    background: linear-gradient(to right, #667eea, #764ba2); /* Gradient Button */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#add-task-btn:hover {
+    transform: translateY(-2px); /* Lifts up slightly */
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4); /* Glow effect */
+}
+
+/* 4. THE LIST STYLING */
+ul {
+    list-style-type: none;
+}
+
 li {
-    background-color: #eeeeee;
-    margin-top: 8px;
-    padding: 10px;
-    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 16px;
+    color: #444;
+    transition: all 0.3s ease;
+    border-left: 5px solid transparent; /* Hidden border for hover effect */
 }
 
+/* Hover effect for tasks */
+li:hover {
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transform: translateX(5px); /* Slides right slightly */
+    border-left: 5px solid #764ba2; /* Shows purple line on left */
+}
+
+/* 5. REMOVE BUTTON STYLING */
 .remove-btn {
-    cursor: pointer;
-    background-color: #ff6347;
-    color: white;
+    background-color: #ffeff1; /* Very light red background */
+    color: #ff4d4d;
     border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .remove-btn:hover {
-    background-color: #d9534f;
+    background-color: #ff4d4d;
+    color: white;
 }
